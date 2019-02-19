@@ -1,7 +1,7 @@
 
-/// <reference path="node" />
+// / <reference path="node" />
 
-const { Readable, Stream } = require('stream')
+import { Stream, Readable } from 'stream'
 
 
 export declare class Drive {
@@ -25,7 +25,7 @@ export declare class Drive {
    * @param filename 
    * @param options 
    */
-  get(filename: string, options?: Options): Promise<File>;
+  readInfo(filename: string, options?: Options): Promise<File>;
 
   /**
    * Remove a file.
@@ -160,9 +160,9 @@ export declare class FileSystemError extends Error {
 
 export interface Adapter {
   remove(filename: string, options?: Options): Promise<any>;
-  get(filename: string, options?: Options): Promise<FileInfo>;
   exists(filename: string, options?: Options): Promise<boolean>;
   createReadStream(filename: string, options?: Options): Readable;
+  readInfo(filename: string, options?: Options): Promise<FileInfo>;
   read(filename: string, options?: ReadOptions): Promise<string | Buffer>;
   write(filename: string, content: string | Buffer | Stream, options?: WriteOptions): Promise<FileInfo>;
 }
