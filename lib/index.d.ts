@@ -181,11 +181,11 @@ export interface Options {
 }
 
 export interface ReadOptions extends Options {
-  encoding?: string;
+  // encoding?: string;
 }
 
 export interface WriteOptions extends Options {
-  encoding?: string;
+  // encoding?: string;
   overwrite?: boolean;
 }
 
